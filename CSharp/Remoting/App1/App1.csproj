@@ -1,0 +1,18 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.WindowsDesktop">
+    <PropertyGroup>
+        <TargetFramework>net461</TargetFramework>
+        <LangVersion>latest</LangVersion>
+        <OutputType>WinExe</OutputType>
+        <UseWPF>true</UseWPF>
+        <ApplicationManifest>App.manifest</ApplicationManifest>
+    </PropertyGroup>
+    <ItemGroup>
+      <ProjectReference Include="..\Remoting.Common\Remoting.Common.csproj" />
+    </ItemGroup>
+    <ItemGroup>
+      <Reference Include="LightKit">
+        <HintPath>..\..\..\..\..\Panguite\mfa\mfa-develop\Packages\LightKit.dll</HintPath>
+      </Reference>
+      <Reference Include="System.Runtime.Remoting" />
+    </ItemGroup>
+</Project>

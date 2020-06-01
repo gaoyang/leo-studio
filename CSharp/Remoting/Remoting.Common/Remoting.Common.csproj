@@ -1,0 +1,11 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net461</TargetFramework>
+        <LangVersion>latest</LangVersion>
+    </PropertyGroup>
+    <ItemGroup>
+      <Reference Include="LightKit">
+        <HintPath>..\..\..\..\..\Panguite\mfa\mfa-develop\Packages\LightKit.dll</HintPath>
+      </Reference>
+    </ItemGroup>
+</Project>
