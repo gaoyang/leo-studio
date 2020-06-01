@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 
@@ -34,7 +35,11 @@ namespace Lab
 
             //ListTest.Main.Run();
 
-            StringTest.Main.Run();
+            //StringTest.Main.Run();
+
+            //ZipTest.Main.Run();
+
+            WindowTest.Main.Run();
 
             Console.ReadKey();
         }
