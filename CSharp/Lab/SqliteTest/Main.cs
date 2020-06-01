@@ -1,20 +1,19 @@
 using System;
-using System.Collections.Generic;
 using System.Data;
 using System.Data.SQLite;
 using System.IO;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace Lab.SqliteTest
 {
     public class Main
     {
-        private readonly static string _dbPath = "sqlite_test.db";
+        private static readonly string _dbPath = "sqlite_test.db";
         private static SQLiteConnection connection;
 
         public static void Run()
         {
+            //TypeTest.Run();
+
             Init();
 
             //Insert(0, 100);
@@ -22,7 +21,7 @@ namespace Lab.SqliteTest
             //多线程并行插入数据
             //Task.WaitAll(Task.Run(() => Insert(0, 3000)), Task.Run(() => Insert(3000, 3000)));
 
-            Task.WaitAll(Task.Run(ThrowEx), Task.Run(ThrowEx), Task.Run(ThrowEx), Task.Run(ThrowEx));
+            //Task.WaitAll(Task.Run(ThrowEx), Task.Run(ThrowEx), Task.Run(ThrowEx), Task.Run(ThrowEx));
 
             Console.WriteLine("End");
         }
@@ -31,7 +30,13 @@ namespace Lab.SqliteTest
         {
             File.Delete(_dbPath);
 
-            connection = new SQLiteConnection(string.Concat("Data Source =", _dbPath));
+            var connectionBuilder = new SQLiteConnectionStringBuilder
+            {
+                DataSource = _dbPath,
+                Password = "123456",
+                Version = 3
+            };
+            connection = new SQLiteConnection(connectionBuilder.ToString());
             connection.Open();
             var command = connection.CreateCommand();
             command.CommandText = @"CREATE TABLE [test] (
@@ -48,7 +53,7 @@ namespace Lab.SqliteTest
             var command = connection.CreateCommand();
             command.CommandText = "INSERT INTO [test] VALUES (@id,@str)";
             command.Transaction = transaction;
-            for (int i = startId; i < startId + count; i++)
+            for (var i = startId; i < startId + count; i++)
             {
                 command.Parameters.Add("@id", DbType.Int32).Value = i;
                 command.Parameters.Add("@str", DbType.String).Value = i.ToString();
