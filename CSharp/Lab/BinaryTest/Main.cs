@@ -10,7 +10,11 @@ namespace Lab.BinaryTest
         {
             //SaveAndRead();
 
-            SizeTest();
+            //SizeTest();
+
+            //IntTest();
+
+            Console.WriteLine(sizeof(Int64));
 
             Console.WriteLine("End");
         }
@@ -77,6 +81,29 @@ namespace Lab.BinaryTest
                 }
                 file.Dispose();
             }
+        }
+
+        /// <summary>
+        /// 将数据有条理的存入文件中 （支持增删改查）
+        /// </summary>
+        public static void IntTest()
+        {
+            Console.WriteLine("写入文件");
+            File.Delete("size_int32.bin");
+            var file = File.Open("size_int32.bin", FileMode.Create);
+            using (var writer = new BinaryWriter(file))
+            {
+                Console.WriteLine(int.MaxValue);
+                writer.Write(int.MaxValue);
+                Console.WriteLine(int.MinValue);
+                writer.Write(int.MinValue);
+            }
+
+            var data = new Data();
+
+
+
+            file.Dispose();
         }
     }
 }

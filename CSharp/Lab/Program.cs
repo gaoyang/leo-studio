@@ -1,3 +1,7 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+
 namespace Lab
 {
     class Program
@@ -10,7 +14,7 @@ namespace Lab
 
             //ReflectionTest.Main.Run();
 
-            BinaryTest.Main.Run();
+            //BinaryTest.Main.Run();
 
             //TreeTest.Main.Run();
 
@@ -21,6 +25,18 @@ namespace Lab
             //TypeTest.Main.Run();
 
             //SetTest.Main.Run();
+
+            //SqliteTest.Main.Run();
+
+            //StreamTest.Main.Run();
+
+            //MemoryTest.Main.Run();
+
+            //ListTest.Main.Run();
+
+            StringTest.Main.Run();
+
+            Console.ReadKey();
         }
     }
 }

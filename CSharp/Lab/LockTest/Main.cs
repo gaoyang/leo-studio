@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -8,7 +9,11 @@ namespace Lab.LockTest
     {
         public static void Run()
         {
-            Lock();
+            //Lock();
+
+            //RecursiveLock();
+
+            DeadLock();
         }
 
         /// <summary>
@@ -103,6 +108,33 @@ namespace Lab.LockTest
         {
             Console.WriteLine("=========== ReaderWriterLock ============");
 
+        }
+
+
+        private static readonly object _lock = new object();
+        public static void RecursiveLock(int i = 100)
+        {
+            lock (_lock)
+            {
+                Console.WriteLine($"进入锁 {i}");
+                if (i == 0) return;
+                RecursiveLock(--i);
+            }
+        }
+
+        public static void DeadLock()
+        {
+            lock (_lock)
+            {
+                var t = new Thread(() => {
+                    lock (_lock)
+                    {
+                        Console.WriteLine("Lock");
+                    }
+                });
+                t.Start();
+                //t.Join();
+            }
         }
     }
 }
