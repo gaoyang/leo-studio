@@ -1,5 +1,3 @@
-﻿using System;
-
 namespace Lab
 {
     class Program
@@ -12,9 +10,17 @@ namespace Lab
 
             //ReflectionTest.Main.Run();
 
-            //BinaryTest.Main.Run();
+            BinaryTest.Main.Run();
 
-            TreeTest.Main.Run();
+            //TreeTest.Main.Run();
+
+            //LockTest.Main.Run();
+
+            //PerformanceTest.Main.Run();
+
+            //TypeTest.Main.Run();
+
+            //SetTest.Main.Run();
         }
     }
 }

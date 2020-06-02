@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 
 namespace Lab.GrammarTest
 {
@@ -6,8 +6,10 @@ namespace Lab.GrammarTest
     {
         public static void Run()
         {
-            var aaa = new Test {"aaa", "aaa", "aaa", "aaa"};
+            var aaa = new Test { "aaa", "aaa", "aaa", "aaa" };
             aaa.AAA = "a";
+
+
         }
     }
 

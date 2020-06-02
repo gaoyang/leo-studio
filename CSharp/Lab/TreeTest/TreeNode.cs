@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace Lab.TreeTest
@@ -7,13 +7,30 @@ namespace Lab.TreeTest
     {
         public TreeNode()
         {
-            Id = Interlocked.Increment(ref _idFlag);
         }
 
-        private static int _idFlag;
-        public int Id { get; }
+        public TreeNode(string header)
+        {
+            Header = header;
+        }
+
+        public TreeNode(string header, object icon)
+        {
+            Header = header;
+            Icon = icon;
+        }
+
+        public TreeNode SetIcon(object icon)
+        {
+            Icon = icon;
+            return this;
+        }
+
         public string Name { get; set; }
         public string Header { get; set; }
+        public object Icon { get; private set; }
+        public object ViewService { get; set; }
+        public object Command { get; set; }
         public TreeNode Parent { get; private set; }
         public List<TreeNode> Items { get; private set; }
 

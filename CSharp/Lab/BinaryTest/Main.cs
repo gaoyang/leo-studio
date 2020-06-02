@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.IO;
 using System.Linq;
 
@@ -8,7 +8,16 @@ namespace Lab.BinaryTest
     {
         public static void Run()
         {
-            var intArray = new[] { 111, 333, 6, 644, 5, Int32.MaxValue, Int32.MinValue };
+            //SaveAndRead();
+
+            SizeTest();
+
+            Console.WriteLine("End");
+        }
+
+        public static void SaveAndRead()
+        {
+            var intArray = new[] { 111, 333, 6, 644, 5, int.MaxValue, int.MinValue };
 
             {
                 Console.WriteLine("写入文件");
@@ -34,8 +43,40 @@ namespace Lab.BinaryTest
                     while (file.Position != file.Length);
                 }
             }
+        }
 
-            Console.WriteLine("End");
+        /// <summary>
+        /// 测试不同类型不同数量的数值 存入二进制文件的大小
+        /// </summary>
+        public static void SizeTest()
+        {
+            // Int32
+            {
+                Console.WriteLine("写入文件");
+                var file = File.Open("size_int32.bin", File.Exists("size_int32.bin") ? FileMode.Append : FileMode.Create);
+                using (var writer = new BinaryWriter(file))
+                {
+                    for (int i = 0; i < 1000000; i++)
+                    {
+                        writer.Write(i);
+                    }
+                }
+                file.Dispose();
+            }
+
+            // UInt32
+            {
+                Console.WriteLine("写入文件");
+                var file = File.Open("size_uint32.bin", File.Exists("size_uint32.bin") ? FileMode.Append : FileMode.Create);
+                using (var writer = new BinaryWriter(file))
+                {
+                    for (uint i = 0; i < 1000000; i++)
+                    {
+                        writer.Write(i);
+                    }
+                }
+                file.Dispose();
+            }
         }
     }
 }
