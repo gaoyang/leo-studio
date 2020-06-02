@@ -6,8 +6,6 @@ namespace Lab
         {
             //GCTest.Main.Run();
 
-            //HttpTest.Main.Run();
-
             //LambdaTest.Main.Run();
 
             //ReflectionTest.Main.Run();
