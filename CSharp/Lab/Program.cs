@@ -1,7 +1,4 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.IO;
 
 namespace Lab
 {
@@ -39,7 +36,9 @@ namespace Lab
 
             //ZipTest.Main.Run();
 
-            WindowTest.Main.Run();
+            // WindowTest.Main.Run();
+
+            PdfTest.Main.Run();
 
             Console.ReadKey();
         }
