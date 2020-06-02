@@ -6,9 +6,11 @@ namespace Lab
     {
         static void Main(string[] args)
         {
-            GCTest.Main.Run();
+            //GCTest.Main.Run();
 
-            LambdaTest.Main.Run();
+            //LambdaTest.Main.Run();
+
+            HttpTest.Main.Run();
 
         }
     }

@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.29102.190
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Lab", "Lab\Lab.csproj", "{2B02AB1F-03B6-42E3-B22B-9B14265B4FEF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Lab", "Lab\Lab.csproj", "{2B02AB1F-03B6-42E3-B22B-9B14265B4FEF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WpfLab", "WpfLab\WpfLab.csproj", "{814A47B1-7BA9-4F74-90CA-7EACC3C31030}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{2B02AB1F-03B6-42E3-B22B-9B14265B4FEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B02AB1F-03B6-42E3-B22B-9B14265B4FEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B02AB1F-03B6-42E3-B22B-9B14265B4FEF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{814A47B1-7BA9-4F74-90CA-7EACC3C31030}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{814A47B1-7BA9-4F74-90CA-7EACC3C31030}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{814A47B1-7BA9-4F74-90CA-7EACC3C31030}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{814A47B1-7BA9-4F74-90CA-7EACC3C31030}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
