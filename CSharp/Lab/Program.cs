@@ -8,7 +8,7 @@ namespace Lab
         {
             //GCTest.Main.Run();
 
-            //LambdaTest.Main.Run();
+            LambdaTest.Main.Run();
 
             //ReflectionTest.Main.Run();
 
@@ -38,7 +38,9 @@ namespace Lab
 
             // WindowTest.Main.Run();
 
-            PdfTest.Main.Run();
+            // PdfTest.Main.Run();
+
+            // ProcessTest.Main.Run();
 
             Console.ReadKey();
         }

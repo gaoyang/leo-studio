@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
+using System.Linq.Dynamic.Core;
 using System.Linq.Expressions;
 using Lab.LambdaTest.Models;
 
@@ -9,9 +10,32 @@ namespace Lab.LambdaTest
 {
     public class Main
     {
-        private static readonly List<object> _data = new List<object>(Mock.GetData());
+        static readonly List<object> _data = new List<object>(Mock.GetData());
+
         public static void Run()
         {
+            // 序列化Lambda
+            var testData = new[]
+            {
+                1,
+                2,
+                3,
+                7,
+                8
+            };
+
+            var res = testData.Where(o => o > 3).ToList();
+
+            Expression<Func<int, bool>> expression = o => o > 3;
+            var parameter = Expression.Parameter(typeof(int[]), "_o");
+            var lambdaExpression = DynamicExpressionParser.ParseLambda(new[]
+            {
+                parameter
+            }, typeof(IEnumerable<int>), $"_o.Where({expression})");
+            var sss = lambdaExpression.Compile().DynamicInvoke(testData) as IEnumerable<int>;
+            var res2 = sss.ToList();
+
+            // 动态组装Lambda
             var query = new Query().Equal("Parent.Name", "张三的爹").And().Equal("Name", "张三");
             var type = typeof(User);
 
@@ -73,11 +97,12 @@ namespace Lab.LambdaTest
             var listInstance = Activator.CreateInstance(listType);
             var list = listInstance as IList;
             foreach (var item in _data)
-            {
                 list.Add(item);
-            }
             // list.FirstOrDefault(o=>Parent.Name=="张三的爹"&&Name=="张三")
-            var firstOrDefault = Expression.Call(typeof(Enumerable), nameof(Enumerable.FirstOrDefault), new[] { type }, Expression.Constant(list), lambda);
+            var firstOrDefault = Expression.Call(typeof(Enumerable), nameof(Enumerable.FirstOrDefault), new[]
+            {
+                type
+            }, Expression.Constant(list), lambda);
             // 执行表达式
             var result = Expression.Lambda(firstOrDefault).Compile().DynamicInvoke();
 
