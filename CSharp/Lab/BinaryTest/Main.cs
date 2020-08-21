@@ -42,7 +42,7 @@ namespace Lab.BinaryTest
                     do
                     {
                         bytes = reader.ReadBytes(4);
-                        Console.WriteLine(BitConverter.ToInt32(bytes));
+                        Console.WriteLine(BitConverter.ToInt32(bytes, 0));
                     }
                     while (file.Position != file.Length);
                 }
