@@ -42,8 +42,10 @@ namespace Lab
 
             // ProcessTest.Main.Run();
             
-            HashTest.Main.Run();
+            // HashTest.Main.Run();
 
+            ThreadTest.Main.Run();
+            
             Console.ReadKey();
         }
     }
